@@ -6,8 +6,8 @@ import logger from "morgan";
 import mongoose from "mongoose";
 
 const port = config.PORT;
-// import indexRouter from "./routes/index.js";
-// import usersRouter from "./routes/users.js";
+import indexRouter from "./routes/index.js";
+import usersRouter from "./routes/users.js";
 
 var app = express();
 
@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// app.use("/", indexRouter);
-// app.use("/users", usersRouter);
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
 const uri = config.DBPATH;
 mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true }).then(
   () => {
