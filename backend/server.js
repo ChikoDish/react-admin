@@ -17,4 +17,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
+app.listen(5003);
+console.log("app running on port ", 3000);
 export default app;
