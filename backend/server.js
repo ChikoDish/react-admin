@@ -21,7 +21,7 @@ app.use("/users", usersRouter);
 const uri = config.DBPATH;
 mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true }).then(
   () => {
-    /** ready to use. The `mongoose.connect()` promise resolves to undefined. */
+    /* ready to use. The `mongoose.connect()` promise resolves to undefined. */
     app.listen(port);
     console.log(`app is running on ${port} in ${config.NODE_ENV}`);
   },
