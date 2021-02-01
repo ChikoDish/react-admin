@@ -1,25 +1,22 @@
 {
   "name": "backend",
-  "version": "1.0.0",
-  "description": "Backend for react admin",
+  "version": "0.0.0",
+  "private": true,
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChikoDish/react-admin.git"
+    "start": "node ./bin/www",
+    "build": "babel server.js --out-dir build"
   },
   "author": "Ankit Kumar Gupta",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ChikoDish/react-admin/issues"
-  },
-  "homepage": "https://github.com/ChikoDish/react-admin#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mongoose": "^5.11.14"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^7.3.0"
   }
 }
