@@ -17,13 +17,17 @@ router.get("/", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({ email }).exec();
-    if (!user) {
-      res.status(400).json({ message: "email does not exist!" });
-    } else if (!Bcrypt.compareSync(password, user.password)) {
-      res.status(400).json({ message: "Invalid password" });
+    if (isValidEmail(email)) {
+      const user = await User.findOne({ email }).exec();
+      if (!user) {
+        res.status(400).json({ message: "email does not exist!" });
+      } else if (!Bcrypt.compareSync(password, user.password)) {
+        res.status(400).json({ message: "Invalid password" });
+      } else {
+        res.send({ message: user });
+      }
     } else {
-      res.send({ message: user });
+      res.status(422).json("validation error");
     }
   } catch (error) {
     res.status(400).json(error);
